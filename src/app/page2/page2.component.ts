@@ -9,7 +9,7 @@ import {DbacessService} from '../db/dbacess.service'
 import { SurveyData } from '../shared/surveydata.model';
 import {QdbService} from '../admin/services/qdb.service'
 import {Question} from '../admin/shared/question.model'
-
+import {Query} from '../admin/shared/query.model'
 @Component({
   selector: 'app-page2',
   templateUrl: './page2.component.html',
@@ -35,7 +35,7 @@ export class Page2Component implements OnInit {
               options:this.ques.data[i].questions[j].options,
               answer:0,
               textanswer:"",
-              allowtextanswer:true
+              allowtextanswer:this.ques.data[i].questions[j].allowTextAnswer
             })
         }
         this.q.push({

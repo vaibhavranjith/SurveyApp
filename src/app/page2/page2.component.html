@@ -28,7 +28,7 @@
 
                                     </div>
                                 </div>
-                                <div *ngIf="y.answer==2">
+                                <div *ngIf="y.answer==2 and y.allowtextanswer==true">
                                     <div class="form-group">
                                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
                                             [(ngModel)]="y.textanswer"></textarea>
@@ -42,8 +42,6 @@
                                     [(ngModel)]="x.response.suggestion"></textarea>
                             </div>
                         </div>
-
-
                     </div>
 
                    

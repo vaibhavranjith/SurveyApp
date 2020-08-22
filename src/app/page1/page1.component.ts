@@ -32,7 +32,7 @@ export class Page1Component implements OnInit {
               options:this.ques.data[i].questions[j].options,
               answer:0,
               textanswer:"",
-              allowtextanswer:true
+              allowtextanswer:this.ques.data[i].questions[j].allowTextAnswer
             })
         }
         this.q.push({
