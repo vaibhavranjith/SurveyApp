@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "surveyapp"
+    }
+  },
+  "defaultProject": "surveyapp",
+  "cli": {
+    "analytics": "7092e472-4205-4938-b3a9-c357f494f043"
+  }
 }
