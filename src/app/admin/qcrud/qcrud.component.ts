@@ -19,7 +19,7 @@ export class QcrudComponent implements OnInit {
   ndesc:string;
   numberofq:number;
   newQ:QData;
-
+  qtodelete:string;
   ngOnInit(): void {
     this.operation=1;
     this.newQ={
@@ -29,11 +29,11 @@ export class QcrudComponent implements OnInit {
     }
     console.log(this.newQ);
   }
-  check(){
-  
-    // this.qdb.check().subscribe(resp=>console.log(resp))
-    // this.qdb.adddata(mes).subscribe(resp=>console.log(resp))
+  deleteQ(){
+    console.log(this.qtodelete);
+    this.qdb.deletedata(this.qtodelete).subscribe(resp=>console.log(resp));
   }
+
   wtfh(){
     console.log(this.operation)
     console.log(this.topicId)

@@ -28,6 +28,9 @@ export class QdbService {
     }
     return this.http.post<JSON>(`${this.baseUrl}/qdata/${topic}`,data,httpOptions).pipe(catchError(this.handleError))
   }
+  deletedata(ref:string):Observable<JSON>{
+    return this.http.get<JSON>(`${this.baseUrl}/qdata/delete/${ref}`)
+  }
 
   getqbytid(tid:string):Observable<Question>{
     return this.http.get<Question>(`${this.baseUrl}/qdata/${tid}`)
