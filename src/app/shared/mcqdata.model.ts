@@ -1,4 +1,5 @@
 export interface McqData{
+
     question:string;
     options:string[];
     answer:number;
