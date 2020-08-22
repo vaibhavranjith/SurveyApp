@@ -25,20 +25,22 @@
                                                 value={{k}} [(ngModel)]="y.answer">
                                             {{z}}
                                         </label>
-                                        
+
                                     </div>
                                 </div>
                                 <div *ngIf="y.answer==2">
                                     <div class="form-group">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="y.textanswer"></textarea>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                            [(ngModel)]="y.textanswer"></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h5 class="display-6 mt-2">Suggestions
                                 </h5>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="x.response.suggestion"></textarea>
-                              </div>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    [(ngModel)]="x.response.suggestion"></textarea>
+                            </div>
                         </div>
 
 
