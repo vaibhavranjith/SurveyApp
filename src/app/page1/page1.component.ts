@@ -18,6 +18,7 @@ export class Page1Component implements OnInit {
   constructor(private commservice: CommService,private router: Router,private qdb:QdbService) { }
   ques:Question;
   q:RefData[]=[];
+  
   ngOnInit(): void {
     this.qdb.getqbytid("1001").subscribe(resp=>{
       // console.log(resp)
@@ -50,10 +51,14 @@ export class Page1Component implements OnInit {
   }
 
   kickdata() {
-    
-    // let s=this.commservice.surveydata.length;
-    // this.commservice.surveydata.survey.push(this.commservice.page1data);
-    // this.commservice.currentpage=1;
+    this.commservice.page1data={
+      topicid:"1001",
+      topicname:"Early Childhood Care & Education (ECCE)",
+      data:this.q
+    }
+    console.log(this.commservice.page1data);
+    this.commservice.surveydata.survey.push(this.commservice.page1data);
+    this.commservice.currentpage=1;
     window.scroll(0,0);
     this.router.navigate(['/page2']);
   }

@@ -18,8 +18,6 @@
                             <div *ngFor="let y of x.response.mcq;index as j">
                                 <h5 class="display-6 mt-2">{{j+1}}.&nbsp;{{y.question}}
                                 </h5>
-
-
                                 <div class="form-check">
                                     <div *ngFor="let z of y.options;index as k">
                                         <label class="form-check-label" for="exampleRadios1">
@@ -27,11 +25,20 @@
                                                 value={{k}} [(ngModel)]="y.answer">
                                             {{z}}
                                         </label>
+                                        
                                     </div>
                                 </div>
-
-
+                                <div *ngIf="y.answer==2">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="y.textanswer"></textarea>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="form-group">
+                                <h5 class="display-6 mt-2">Suggestions
+                                </h5>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="x.response.suggestion"></textarea>
+                              </div>
                         </div>
 
 
