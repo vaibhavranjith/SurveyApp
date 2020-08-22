@@ -6,45 +6,60 @@
 
 <div *ngIf="operation==1">
     <div class="container mt-5">
-        
-            <div class="form-group">
-                <label for="formGroupExampleInput">Topic ID</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Question">
+        <h5>Topic ID </h5>
+        <select class="form-control" [(ngModel)]="topicId" (change)="wtfh()">
+            <option value="1001">Early Childhood Care & Education (ECCE)</option>
+            <option value="1002">Foundational Literacy and Numeracy (FLN)</option>
+        </select>
+        <input class="form-control mt-3" type="text" placeholder="Ref #" [(ngModel)]="nref">
+        <div class="form-group">
+            <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
+            <textarea class="form-control mt-3" placeholder="Question description" id="exampleFormControlTextarea1"
+                rows="3" [(ngModel)]="ndesc"></textarea>
+        </div>
+        <div class="container-fluid ar-btn">
+            <button class="btn btn-primary " (click)="addQ()">+</button>
+            <button class="btn btn-primary ml-2 " (click)="remQ()">-</button>
+            <div class="row">
+            <div *ngFor="let qry of newQ.questions;index as i">
+                <div class="card text-center mt-3 mb-3" style="width: 18rem;">
+                    <div class="card-body ">
+                        <h5 class="card-title">Question &nbsp; {{i+1}}</h5>
+                        <input class="form-control mb-2" type="text" placeholder="Question" [(ngModel)]="qry.question">
+                        <button class="btn btn-light mb-3" (click)="addopt(i)">+</button>
+                        <button class="btn btn-light mb-3" (click)="remopt(i)">-</button>
+                        <div *ngFor="let o of qry.options;index as j;trackBy:customTrackBy">
+                            <div class="form-group">
+                                <input type="text" class="form-control"  [(ngModel)]="qry.options[j]" placeholder="option {{j+1}}">
+                              </div>
+                            
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="true" id="gridCheck" [(ngModel)]="qry.allowTextAnswer">
+                            <label class="form-check-label" for="gridCheck">
+                              Add Text box
+                            </label>
+                          </div>
+                    </div>
+                </div>
             </div>
+        </div>    
+            <button class="btn btn-primary mt-3 mb-5" (click)="submit()">Add</button>
+        </div>
 
-
-            <div class="form-group">
-                <label for="formGroupExampleInput">Ref#</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Question">
-            </div>
-
-            <div class="form-group">
-                <label for="formGroupExampleInput">Description</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Question">
-            </div>
-
-            <div class="form-group">
-                <label for="formGroupExampleInput">Question</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Question">
-            </div>
-
-            <label for="formGroupExampleInput">Number of options</label>
-            <select class="form-control form-control-sm">
-                <option>Small select</option>
-            </select>
 
     </div>
 </div>
 <div *ngIf="operation==2">
     <div class="container mt-5">
-        
+
     </div>
 </div>
 <div *ngIf="operation==3">
     <div class="container mt-5">
-        
+
     </div>
 </div>
 
 
-<button class="btn btn-primary mt-3" (click)="check()">Connect</button>
+<button class="btn btn-primary mt-3 mb-5" (click)="check()">Connect</button>

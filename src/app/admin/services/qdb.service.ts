@@ -7,7 +7,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
+import {QData} from '../shared/qdata.model'
 @Injectable({
   providedIn: 'root'
 })
@@ -20,13 +20,13 @@ export class QdbService {
     return this.http.get<Question>(`${this.baseUrl}/qdata`)
   }
   
-  adddata(data:Question):Observable<Question>{
+  adddata(data:QData,topic:string):Observable<JSON>{
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     }
-    return this.http.post<Question>(`${this.baseUrl}/qdata`,data,httpOptions).pipe(catchError(this.handleError))
+    return this.http.post<JSON>(`${this.baseUrl}/qdata/${topic}`,data,httpOptions).pipe(catchError(this.handleError))
   }
 
   getqbytid(tid:string):Observable<Question>{
