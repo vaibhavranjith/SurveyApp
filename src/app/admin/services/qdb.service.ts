@@ -8,6 +8,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {QData} from '../shared/qdata.model'
+import {Edata} from '../shared/edata.model'
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +38,18 @@ export class QdbService {
 
   }
 
+  getqbyref(ref:string):Observable<Edata>{
+    return this.http.get<Edata>(`${this.baseUrl}/qdata/edit/${ref}`)
+  }
+
+  sendedittedq(eq:Edata):Observable<JSON>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post<JSON>(`${this.baseUrl}/qdata/edit`,eq,httpOptions).pipe(catchError(this.handleError))
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
